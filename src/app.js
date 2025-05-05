@@ -130,6 +130,16 @@ App = {
       }      
     },
 
+    createTask: async () => {
+      App.setLoading(true);
+      const content = $("#newTask").val();
+      console.log("create task 1: " + App.account)
+      //await App.todoList.createTask(content);
+      await App.todoList.createTask(content, { from: App.account });
+      console.log("create task 2")
+      window.location.reload();
+    },
+
     setLoading: (boolean) => {
         App.loading = boolean;
         const loader = $('#loader');
